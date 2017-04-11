@@ -34,19 +34,29 @@
 
 				<div class="panel-body">
 					@foreach ($weathers as $weather)
-					<h1 class="pmd-display-4">Temperature</h1>
-					<a href="https://weather.com">
-						<h1 class="pmd-display-4">{{ $weather->tempHigh }} <small> {{ $weather->tempLow }}</small></h1>
-					</a>
+					<h1>Date</h1>
+					<h2 class="text-center">{{ $weather->date }}</h2>
+					<hr>
+					<h1 >Temperature</h1>
+					<h1 class="display-1 text-center">HIGH <a href = "https://weather.com">{{ $weather->tempHigh }} degrees Fahrenheit</a></h1>
+					<h1 class="text-center"><small>LOW {{ $weather->tempLow }} degrees Fahrenheit</small></h1>
+					<hr>
+					<h1>Humidity</h1>
+					<h2 class="text-center">{{ $weather->humidity }} %</h2>
+					<hr>
+					<h1>Precipitation</h1>
+					<?php if ($weather->precipitation == 0){ ?>
+						<h2 class="text-center">Not Precipitating</h2>
+					<?php } else { ?>
+						<h2 class="text-center">Precipitating</h2>
+					<?php } ?>
+					<hr>
+					<hr>
+					</div>
 					@endforeach
-
-					<div class="text-right">
-                        <h6>degrees Fahrenheit<i class="fa fa-arrow-circle-right"></i></h6>
-                    </div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-@endsection
+	@endsection
